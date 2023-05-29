@@ -12,10 +12,13 @@ import Register from "./pages/Register";
 import Protected from "./components/Protected";
 import Dashboard from "./pages/Dashboard";
 import RedirectifProtected from "./components/RedirectifProtected";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 function App() {
   return (
     <Provider store={store}>
+      <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}>
+
       <BrowserRouter>
         <Header />
 
@@ -55,6 +58,7 @@ function App() {
         
         <ToastContainer theme="colored"/>
       </BrowserRouter>
+      </GoogleOAuthProvider>
     </Provider>
   );
 }
